@@ -42,10 +42,20 @@ Once I've done this and it is working I tend to use the version from the above i
 
 ```
 
+### Creating a Pipeline
 
+To create a pipeline I am using another notebook! The notebook uses Papermill to execute a series of notebook in sequence. If I wanted to get fancy I could have some of them execute in parallel and I may do that, but for now, this works.
 
-### Clone to a different folder
+This pipeline is stored in the `entrypoint.ipynb` by default.
 
-When I want to create a new project based on
+### Scheduling Your Pipeline
 
-Robust, production worthy, ready to go Jupyter Notebooks
+Now that you have everything working just the way you want it we can schedule our pipeline to run. The command we're going to use when scheduling is:
+
+```
+docker-compose run --rm --entrypoint "./run.sh entrypoint.ipynb" jupyter
+```
+
+This command tells docker to run the service in the compose file called `jupyter` we override the default entrypoint, the command ran inside the container, to run the `entrypoint.ipynb` notebook.
+
+Now that we now the command ew can use our favorite scheduling tool to schedule it. On most unix systems, the easiest tool to do that would be cron.
