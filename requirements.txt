@@ -1,3 +1,8 @@
 papermill==2.3.4
 fastparquet==0.8.1
 jupyterlab-system-monitor==0.8.0
+nbqa==1.4.0
+black==22.6.0
+isort==5.10.1
+pyupgrade==2.37.3
+mdformat==0.7.15
