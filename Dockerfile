@@ -1,5 +1,5 @@
 # Based on the latest datascience-notebook as of 4/30/21
-ARG STARTER_IMAGE=jupyter/datascience-notebook:lab-3.4.4
+ARG STARTER_IMAGE=jupyter/datascience-notebook:lab-4.0.7
 FROM $STARTER_IMAGE
 
 # Add in your own requirements below.
