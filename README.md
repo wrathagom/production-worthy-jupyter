@@ -14,7 +14,17 @@ To get started with this repo you need to make sure you have Docker and Docker C
 
 ### Creating Your Own Project
 
-The above just gets you into Jupyter as fast as possible, but really this repo is designed to be used as boilerplate for scaleable ata projects. When I want to create a new project from this repo, here's what I do:
+The above just gets you into Jupyter as fast as possible, but really this repo is designed to be used as boilerplate for scaleable data projects. When I want to create a new project from this repo, I have a couple of options:
+
+#### Github Templates
+
+This repo is marked as a template, so on Github you should see a green **Use this template** button. If you click that you will be prompted to create a new repository by giving it a name, etc.
+
+This is certainly the easiest way to get started with this repo and it's a cool newish feature added by Github.
+
+#### The Old Way
+
+Alternatively you can clone this repo and do a few extra steps to set it up on a repo of your own:
 
 1. Create a folder for my project to live in `mkdir my-new-project`
 2. Change directories into the new project folder `cd my-new-project`
