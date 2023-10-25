@@ -33,14 +33,35 @@ There are two primary ways of customizing which packages are available inside th
 When I am building a notebook and I encounter a package that is not installed I first like to `!pip install` it directly in the notebook. This does a few things: it allows me to troubleshoot installing the package, it allows me to get the version of the package installed, and it doesn't slow down my Notebook development at all. When you use this method you should get an output similar to the below:
 
 ```
+Collecting gpxpy
+  Downloading gpxpy-1.6.0-py3-none-any.whl.metadata (5.9 kB)
+Downloading gpxpy-1.6.0-py3-none-any.whl (42 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.6/42.6 kB 601.1 kB/s eta 0:00:000:00:01
+Installing collected packages: gpxpy
+Successfully installed gpxpy-1.6.0
 
 ```
 
 Once I've done this and it is working I tend to use the version from the above install method and modify the requirements file. So for the above example I would add the below to `requirements.txt`
 
 ```
+gpxpy==1.6.0
+```
+
+### Saving Secrets and Credentials
+
+In the `data/notebooks` directory there is a secrets.yml.example file. If the project I am working on requires credentials or secrets of any sorts I start out by duplicating this file and renaming it to just `secrets.yml`. This file is ignored by git using a .gitignore file and wont be committed back to the repository.
+
+Then I can use a snippt like the below to load the file and utilize the credentials stored within.
 
 ```
+import yaml
+
+with open("config.yml", 'r') as ymlfile:
+    cfg = yaml.safe_load(ymlfile)
+```
+
+Obviously care must be taken not to print these or any other secrets out when using the notebook else they could still be committed and made public. But this method provides a reasonable way of managing credentials in your notebooks.
 
 ### Creating a Pipeline
 
@@ -58,4 +79,4 @@ docker-compose run --rm --entrypoint "./run.sh entrypoint.ipynb" jupyter
 
 This command tells docker to run the service in the compose file called `jupyter` we override the default entrypoint, the command ran inside the container, to run the `entrypoint.ipynb` notebook.
 
-Now that we now the command ew can use our favorite scheduling tool to schedule it. On most unix systems, the easiest tool to do that would be cron.
+Now that we now the command, we can use our favorite scheduling tool to schedule it. On most unix systems, the easiest tool to do that would be cron.
