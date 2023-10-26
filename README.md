@@ -36,7 +36,7 @@ Alternatively you can clone this repo and do a few extra steps to set it up on a
 
 There are two primary ways of customizing which packages are available inside the container and to the notebooks:
 
- - Modifying the `requirements.txt` file and re-building the image. This approach is best for packages that are shared across multiple notebooks or packages that are needed outside of a notebook, but inside of a container.
+ - Modifying the `requirements.txt` file and re-building the image. This approach is best for packages that are shared across multiple notebooks or packages that are needed outside of a notebook, but inside of a container. I've added a `# Custom tools for your project` seciont to the requirements.txt. This is where I put custom package requirments for my projects, just to keep them all together.
 
  - Adding a `!pip install package_name` to te first cell of your notebook. This approach is best for packages used by a single notebook.
 
