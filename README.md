@@ -40,6 +40,8 @@ There are two primary ways of customizing which packages are available inside th
 
  - Adding a `!pip install package_name` to te first cell of your notebook. This approach is best for packages used by a single notebook.
 
+#### How I Do It
+
 When I am building a notebook and I encounter a package that is not installed I first like to `!pip install` it directly in the notebook. This does a few things: it allows me to troubleshoot installing the package, it allows me to get the version of the package installed, and it doesn't slow down my Notebook development at all. When you use this method you should get an output similar to the below:
 
 ```
